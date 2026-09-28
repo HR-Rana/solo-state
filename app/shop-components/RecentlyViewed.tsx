@@ -1,17 +1,13 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { Product } from "./shop-data";
+import { Product } from './shop-data';
 
 type RecentlyViewedProps = {
   products: Product[];
   onProductClick: (product: Product) => void;
 };
 
-export default function RecentlyViewed({
-  products,
-  onProductClick,
-}: RecentlyViewedProps) {
+export default function RecentlyViewed({ products, onProductClick }: RecentlyViewedProps) {
   if (!products.length) {
     return null;
   }
@@ -24,10 +20,7 @@ export default function RecentlyViewed({
         </p>
         <div className="mt-3 flex items-end justify-between gap-5">
           <h2 className="serif text-3xl sm:text-4xl">Recently Viewed</h2>
-          <Link
-            href="/shop"
-            className="text-[10px] font-bold tracking-[0.16em]"
-          >
+          <Link href="/shop" className="text-[10px] font-bold tracking-[0.16em]">
             VIEW ALL →
           </Link>
         </div>
@@ -51,12 +44,8 @@ export default function RecentlyViewed({
                 <p className="text-[9px] uppercase tracking-[0.12em] text-black/35">
                   {product.category}
                 </p>
-                <h3 className="mt-1 truncate text-xs font-semibold">
-                  {product.name}
-                </h3>
-                <p className="mt-2 text-xs font-bold">
-                  ৳ {product.price.toLocaleString()}
-                </p>
+                <h3 className="mt-1 truncate text-xs font-semibold">{product.name}</h3>
+                <p className="mt-2 text-xs font-bold">৳ {product.price.toLocaleString()}</p>
               </div>
             </button>
           ))}

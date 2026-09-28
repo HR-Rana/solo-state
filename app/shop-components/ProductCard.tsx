@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Heart, Plus, Star } from 'lucide-react';
 import { Product } from './shop-data';
 
@@ -19,18 +20,17 @@ export default function ProductCard({
   return (
     <article className="group overflow-hidden bg-white">
       <div className="relative aspect-[4/5] overflow-hidden bg-[#e9e3d8]">
-        <button
-          type="button"
-          onClick={() => onQuickAdd(product)}
-          className="block h-full w-full cursor-pointer"
-          aria-label={`Quick add ${product.name}`}
+        <Link
+          href={`/product/${product.id}`}
+          className="block h-full w-full"
+          aria-label={`View details for ${product.name}`}
         >
           <img
             src={product.image}
             alt={product.name}
             className="image-zoom h-full w-full object-cover"
           />
-        </button>
+        </Link>
 
         {product.badge && (
           <span className="absolute left-3 top-3 bg-[#071725] px-2.5 py-1.5 text-[8px] font-bold tracking-[0.12em] text-white">
@@ -65,13 +65,12 @@ export default function ProductCard({
         <p className="text-[9px] uppercase tracking-[0.2em] text-black/35">
           {product.category}
         </p>
-        <button
-          type="button"
-          onClick={() => onQuickAdd(product)}
+        <Link
+          href={`/product/${product.id}`}
           className="mt-2 block text-left text-sm font-semibold leading-5 hover:underline"
         >
           {product.name}
-        </button>
+        </Link>
 
         <div className="mt-2 flex items-center gap-1">
           {Array.from({ length: 5 }).map((_, index) => (
